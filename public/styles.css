@@ -91,6 +91,37 @@ body {
     color: var(--primary);
 }
 
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    background: var(--gray-100);
+    border-radius: 0.75rem;
+    order: 4;
+}
+
+.language-btn {
+    min-width: 34px;
+    height: 32px;
+    padding: 0 0.55rem;
+    border: 0;
+    border-radius: 0.55rem;
+    background: transparent;
+    color: var(--gray-600);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.language-btn:hover,
+.language-btn.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
 
 /* Buttons */
 
@@ -148,6 +179,7 @@ body {
 
 .btn-order {
     padding: 0.625rem 1.25rem;
+    order: 5;
 }
 
 
@@ -865,9 +897,16 @@ body {
 }
 
 
-/* Responsive Design */
+/* ======================================== */
+
+
+/* ПОКРАЩЕНА МОБІЛЬНА ВЕРСІЯ (max-width: 768px) */
+
+
+/* ======================================== */
 
 @media (max-width: 768px) {
+    /* Header */
     .mobile-menu-btn {
         display: flex;
     }
@@ -891,54 +930,781 @@ body {
         flex-direction: column;
         gap: 1.5rem;
     }
-    .hero {
-        padding: 6rem 0;
-        min-height: auto;
-    }
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    .hero-description {
-        font-size: 1rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .hero-buttons .btn-large {
-        width: 100%;
-        max-width: 280px;
-    }
-    .about-content,
-    .order-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .section-title {
-        font-size: 1.75rem;
-    }
-    .services-grid,
-    .advantages-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
+    .nav-list a {
+        font-size: 1.125rem;
+        display: block;
+        padding: 0.5rem 0;
     }
     .btn-order {
         display: none;
     }
+    /* Hero Section - Мобільна */
+    .hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        padding: 0 10px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .hero-buttons .btn-large {
+        width: 100%;
+        max-width: 260px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    /* Загальні секції */
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .section-subtitle {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+    .section-tag {
+        font-size: 0.75rem;
+    }
+    /* About Section */
+    .about {
+        padding: 3rem 0;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-paragraph {
+        font-size: 0.9rem;
+    }
+    .about-features {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    .about-feature .feature-icon {
+        font-size: 1.5rem;
+    }
+    .feature-text {
+        font-size: 0.7rem;
+    }
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    .stat-card {
+        padding: 1rem;
+    }
+    .stat-card-number {
+        font-size: 1.5rem;
+    }
+    .stat-card-label {
+        font-size: 0.7rem;
+    }
+    /* Services Section */
+    .services {
+        padding: 3rem 0;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .service-card {
+        padding: 1.25rem;
+    }
+    .service-icon {
+        font-size: 2rem;
+    }
+    .service-title {
+        font-size: 1.2rem;
+    }
+    .service-description {
+        font-size: 0.85rem;
+    }
+    .service-features span {
+        font-size: 0.75rem;
+    }
+    .service-price {
+        font-size: 1.2rem;
+    }
+    /* Advantages Section */
+    .advantages {
+        padding: 3rem 0;
+    }
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .advantage-card {
+        padding: 1.25rem;
+    }
+    .advantage-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    .advantage-title {
+        font-size: 1.1rem;
+    }
+    .advantage-description {
+        font-size: 0.85rem;
+    }
+    /* CTA Section */
+    .cta {
+        padding: 3rem 0;
+    }
+    .cta-title {
+        font-size: 1.6rem;
+    }
+    .cta-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        padding: 0 15px;
+    }
+    .cta .btn-large {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    .cta-note {
+        font-size: 0.75rem;
+    }
+    /* Order Form Section - Мобільна */
+    .order-section {
+        padding: 2rem 0;
+    }
+    .order-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .order-info {
+        position: static;
+        padding: 0 0.5rem;
+    }
+    .info-badge {
+        font-size: 0.75rem;
+    }
+    .info-title {
+        font-size: 1.8rem;
+    }
+    .info-description {
+        font-size: 0.9rem;
+    }
+    .info-feature {
+        gap: 0.75rem;
+        font-size: 0.85rem;
+    }
+    .feature-check {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    .contact-telegram {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .order-form-container {
+        padding: 1.25rem;
+    }
+    .order-form {
+        gap: 1rem;
+    }
+    .form-group label {
+        font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    .field-hint {
+        font-size: 0.7rem;
+    }
+    .btn-submit {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+    /* Footer - Мобільна */
+    .footer {
+        padding: 2.5rem 0 1.5rem;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+    .footer-links li a,
+    .footer-contacts li a {
+        justify-content: center;
+    }
+    .footer-contacts li {
+        justify-content: center;
+    }
+    .footer-working-hours {
+        justify-content: center;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    .footer-bottom-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    /* Контейнер */
+    .container {
+        padding: 0 15px;
+    }
+}
+
+
+/* Для дуже маленьких екранів (до 480px) */
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-description {
+        font-size: 0.85rem;
+    }
+    .section-title {
+        font-size: 1.4rem;
+    }
+    .info-title {
+        font-size: 1.5rem;
+    }
+    .cta-title {
+        font-size: 1.4rem;
+    }
+    .service-card {
+        padding: 1rem;
+    }
+    .advantage-card {
+        padding: 1rem;
+    }
+    .footer-logo h3 {
+        font-size: 1.3rem;
+    }
+    .footer-title {
+        font-size: 1rem;
+    }
+}
+
+
+/* Планшети (від 769px до 1024px) */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        padding: 6rem 0;
+        min-height: 80vh;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .about-content {
+        gap: 2rem;
+    }
+    .order-wrapper {
+        gap: 2rem;
+    }
+}
+
+
+/* Великі планшети (від 768px до 1024px) - горизонтальна орієнтація */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 4rem 0;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* ======================================== */
+/* ФІНАЛЬНИЙ АДАПТИВ ТА ПОКРАЩЕНЕ МОБІЛЬНЕ МЕНЮ */
+/* ======================================== */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+}
+
+.mobile-order-item {
+    display: none;
+}
+
+.nav-order-btn {
+    width: 100%;
+    color: var(--white) !important;
+}
+
+@media (min-width: 1025px) {
+    .header-content {
+        gap: 1.5rem;
+    }
+
+    .nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        order: 3;
+    }
+
+    .hero {
+        padding: clamp(6rem, 9vw, 9rem) 0;
+    }
+
+    .hero-title {
+        font-size: clamp(3.8rem, 5.3vw, 5rem);
+    }
+
+    .services-grid,
+    .advantages-grid {
+        align-items: stretch;
+    }
+
+    .service-card,
+    .advantage-card,
+    .stat-card,
+    .order-form-container {
+        border-radius: 0.75rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header-content {
+        gap: 1rem;
+    }
+
+    .language-switcher {
+        margin-left: 0;
+    }
+
+    .nav-list {
+        gap: 1.1rem;
+    }
+
+    .btn-order,
+    .header-content > .btn-telegram {
+        padding: 0.65rem 1rem;
+        white-space: nowrap;
+    }
+
+    .hero-title {
+        font-size: clamp(2.4rem, 6vw, 3.2rem);
+    }
+
+    .about-content,
+    .order-wrapper {
+        grid-template-columns: 1fr;
+    }
+
     .order-info {
         position: static;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero {
-        padding: 7rem 0;
-        min-height: 90vh;
+@media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
     }
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .header {
+        position: sticky;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .header-content {
+        padding: 0.75rem 0;
+        gap: 0.6rem;
+    }
+
+    .logo h1 {
+        font-size: 1.25rem;
+    }
+
+    .language-switcher {
+        order: 2;
+        margin-left: auto;
+        padding: 0.2rem;
+        border-radius: 0.65rem;
+    }
+
+    .language-btn {
+        min-width: 30px;
+        height: 30px;
+        padding: 0 0.35rem;
+        font-size: 0.72rem;
+    }
+
+    .mobile-menu-btn {
+        order: 3;
+        position: relative;
+        z-index: 1001;
+        width: 42px;
+        height: 42px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        background: var(--gray-100);
+    }
+
+    body.menu-open .mobile-menu-btn {
+        position: fixed;
+        top: 0.8rem;
+        right: 1rem;
+        z-index: 1002;
+    }
+
+    .mobile-menu-btn span {
+        position: absolute;
+        width: 22px;
+        transform-origin: center;
+    }
+
+    .mobile-menu-btn span:nth-child(1) {
+        transform: translateY(-7px);
+    }
+
+    .mobile-menu-btn span:nth-child(3) {
+        transform: translateY(7px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    .nav {
+        position: fixed !important;
+        inset: 0 0 0 auto !important;
+        width: min(86vw, 340px);
+        max-width: none;
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+        min-height: 100vh;
+        max-height: 100vh;
+        max-height: 100dvh;
+        padding: 5.25rem 1rem 1.5rem;
+        border-left: 1px solid var(--gray-200);
+        background: var(--white);
+        box-shadow: var(--shadow-xl);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transform: translateX(100%);
+        visibility: hidden;
+        pointer-events: none;
+        will-change: transform;
+    }
+
+    .nav.active {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav-list {
+        width: 100%;
+        gap: 0.65rem;
+    }
+
+    .nav-list li {
+        width: 100%;
+    }
+
+    .nav-list a:not(.nav-order-btn),
+    .nav-order-btn {
+        width: 100%;
+        min-height: 54px;
+        height: 54px;
+        margin: 0;
+        padding: 0 1rem;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        line-height: 1.2;
+        white-space: normal;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .nav-list a:not(.nav-order-btn) {
+        background: var(--gray-50);
+        color: var(--gray-800);
+        font-weight: 700;
+    }
+
+    .nav-list a:not(.nav-order-btn):hover {
+        background: var(--gray-100);
+    }
+
+    .mobile-order-item {
+        display: block;
+        margin-top: 0.65rem;
+    }
+
+    .nav-order-btn {
+        width: 100%;
+        min-height: 54px;
+        height: 54px;
+        margin: 0;
+        background: var(--primary);
+        color: var(--white) !important;
+        border: 0;
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-md);
+        font-weight: 700;
+        justify-content: center !important;
+    }
+
+    .nav-order-btn:hover {
+        background: var(--primary-dark);
+        color: var(--white) !important;
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-list .mobile-order-item .nav-order-btn {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btn-order,
+    .header-content > .btn-telegram {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 4.25rem 0 4.75rem;
+        text-align: left;
+    }
+
+    .hero::before {
+        height: 42px;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
     .hero-title {
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.12;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        padding: 0;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn-large {
+        max-width: none;
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .section-header {
+        text-align: left;
+    }
+
+    .section-subtitle {
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-features,
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .about-feature,
+    .stat-card {
+        text-align: left;
+    }
+
+    .about-feature {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.85rem;
+        border-radius: 0.75rem;
+        background: var(--gray-50);
+    }
+
+    .about-feature .feature-icon {
+        margin-bottom: 0;
+        min-width: 32px;
+    }
+
+    .feature-text,
+    .stat-card-label,
+    .service-features span {
+        font-size: 0.9rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .service-card,
+    .advantage-card,
+    .order-form-container {
+        border-radius: 0.75rem;
+    }
+
+    .advantage-card {
+        text-align: left;
+    }
+
+    .advantage-icon {
+        margin-bottom: 1rem;
+    }
+
+    .service-features span {
+        align-items: flex-start;
+    }
+
+    .service-price {
+        text-align: left;
+    }
+
+    .cta {
+        text-align: left;
+    }
+
+    .cta-description {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .cta .btn-large {
+        width: 100%;
+    }
+
+    .cta-note {
+        justify-content: flex-start;
+    }
+
+    .order-section {
+        padding: 2.25rem 0 3rem;
+    }
+
+    .info-features {
+        display: grid;
+        gap: 0.75rem;
+    }
+
+    .info-feature {
+        align-items: flex-start;
+        margin-bottom: 0;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 46px;
+    }
+
+    .footer-content,
+    .footer-bottom {
+        text-align: left;
+    }
+
+    .footer-social,
+    .footer-links li a,
+    .footer-contacts li,
+    .footer-working-hours,
+    .footer-bottom-links {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding-top: 3.5rem;
+    }
+
+    .section-title,
+    .info-title,
+    .cta-title {
+        line-height: 1.15;
+    }
+
+    .service-card,
+    .advantage-card,
+    .order-form-container {
+        padding: 1rem;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 0.65rem;
     }
 }
