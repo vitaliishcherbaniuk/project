@@ -619,6 +619,17 @@ function translateFooter() {
         });
     });
 
+    document.querySelectorAll('.footer a').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        const text = link.textContent.trim().toLowerCase();
+        const isOrderLink = href.includes('/order') || text.includes('замовити') || text.includes('order') || text.includes('advertentie') || text.includes('reklam');
+
+        if (isOrderLink) {
+            const icon = link.querySelector('i');
+            link.innerHTML = `${icon ? icon.outerHTML : '<i class="fas fa-chevron-right"></i>'} ${tr('orderAd')}`;
+        }
+    });
+
     document.querySelectorAll('.footer-section:nth-child(3) .footer-links li:nth-child(1) a').forEach(link => {
         link.innerHTML = `<i class="fas fa-chevron-right"></i> ${tr('service1Title')}`;
     });
